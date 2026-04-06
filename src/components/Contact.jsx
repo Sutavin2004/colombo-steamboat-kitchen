@@ -136,7 +136,7 @@ export default function Contact() {
 
               {/* Row 2 */}
               <div className="grid sm:grid-cols-2 gap-8">
-                <InputField label="Phone Number" type="tel" name="phone" value={form.phone} onChange={handleChange} placeholder="(416) 555-0000" />
+                <InputField label="Phone Number" type="tel" name="phone" value={form.phone} onChange={handleChange} placeholder="(647) 555-0000" />
 
                 {/* Party Size Select */}
                 <div>
