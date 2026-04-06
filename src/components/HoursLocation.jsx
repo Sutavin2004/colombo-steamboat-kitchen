@@ -128,18 +128,18 @@ export default function HoursLocation() {
             transition={{ duration: 0.7 }}
             className="space-y-4"
           >
-            <div className="relative rounded-2xl overflow-hidden border-2 border-[#C9933A]/25 shadow-2xl shadow-black/30"
-              style={{ height: '400px' }}>
+            <div className="relative rounded-2xl overflow-hidden border-2 border-[#C9933A]/25 shadow-2xl shadow-black/30">
               {info.googleMapsEmbed ? (
                 <iframe
                   src={info.googleMapsEmbed}
                   width="100%"
-                  height="100%"
+                  height="450"
                   style={{ border: 0 }}
-                  allowFullScreen
+                  allowFullScreen=""
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Colombo Steam Boat Kitchen Map"
+                  className="rounded-xl w-full"
+                  title="Colombo Steam Boat Kitchen Location"
                 />
               ) : (
                 /* Placeholder when no embed URL is set */

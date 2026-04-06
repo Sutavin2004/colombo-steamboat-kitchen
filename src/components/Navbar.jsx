@@ -139,6 +139,16 @@ export default function Navbar() {
                         <span className="w-8 h-8 rounded-lg bg-[#06C167] flex items-center justify-center text-[#1A1209] text-xs font-bold">UE</span>
                         <span className="text-[#FDF6EC] text-sm font-medium group-hover:text-white">Uber Eats</span>
                       </a>
+                      <div className="border-t border-[#C9933A]/10" />
+                      <a
+                        href={info.skipTheDishesURL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-3 px-4 py-3 hover:bg-[#E2001A]/10 transition-colors group"
+                      >
+                        <span className="w-8 h-8 rounded-lg bg-[#E2001A] flex items-center justify-center text-white text-[9px] font-bold">SKIP</span>
+                        <span className="text-[#FDF6EC] text-sm font-medium group-hover:text-white">SkipTheDishes</span>
+                      </a>
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -184,13 +194,13 @@ export default function Navbar() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 }}
-                className="flex gap-4 mt-8"
+                className="flex flex-wrap justify-center gap-3 mt-8 px-6"
               >
                 <a
                   href={info.doordashURL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-[#FF3008] text-white px-6 py-3 rounded-full font-semibold text-sm hover:scale-105 transition-transform"
+                  className="bg-[#FF3008] text-white px-5 py-3 rounded-full font-semibold text-sm hover:scale-105 transition-transform"
                 >
                   DoorDash
                 </a>
@@ -198,9 +208,17 @@ export default function Navbar() {
                   href={info.uberEatsURL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-[#06C167] text-[#1A1209] px-6 py-3 rounded-full font-semibold text-sm hover:scale-105 transition-transform"
+                  className="bg-[#06C167] text-[#1A1209] px-5 py-3 rounded-full font-semibold text-sm hover:scale-105 transition-transform"
                 >
                   Uber Eats
+                </a>
+                <a
+                  href={info.skipTheDishesURL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-[#E2001A] text-white px-5 py-3 rounded-full font-semibold text-sm hover:scale-105 transition-transform"
+                >
+                  Skip
                 </a>
               </motion.div>
             </div>

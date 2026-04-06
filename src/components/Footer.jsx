@@ -102,6 +102,12 @@ export default function Footer() {
                 <span className="w-5 h-5 bg-black/10 rounded text-[9px] font-bold flex items-center justify-center">UE</span>
                 Order on Uber Eats
               </a>
+              <a href={info.skipTheDishesURL} target="_blank" rel="noopener noreferrer"
+                className="flex items-center gap-2 w-full px-4 py-2.5 rounded-lg font-body text-white text-sm font-medium transition-opacity hover:opacity-90"
+                style={{ background: '#E2001A' }}>
+                <span className="w-5 h-5 bg-white/15 rounded text-[8px] font-bold flex items-center justify-center">SKIP</span>
+                Order on Skip
+              </a>
             </div>
           </div>
         </div>
