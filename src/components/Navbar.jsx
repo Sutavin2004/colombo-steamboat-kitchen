@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FiMenu, FiX, FiChevronDown } from 'react-icons/fi'
 import { info } from '../data/info'
+import OpenStatusBadge from './OpenStatusBadge'
 
 const navLinks = [
   { label: 'Home', href: '#home' },
@@ -97,6 +98,9 @@ export default function Navbar() {
               ))}
             </div>
 
+            {/* Open Status Badge (desktop) */}
+            <OpenStatusBadge />
+
             {/* Order Dropdown + Hamburger */}
             <div className="flex items-center gap-3">
               {/* Order Now Dropdown */}
@@ -155,9 +159,11 @@ export default function Navbar() {
               {/* Hamburger */}
               <button
                 onClick={() => setMobileOpen(!mobileOpen)}
+                aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+                aria-expanded={mobileOpen}
                 className="lg:hidden w-10 h-10 flex items-center justify-center text-[#FDF6EC] hover:text-[#E8871A] transition-colors"
               >
-                {mobileOpen ? <FiX size={22} /> : <FiMenu size={22} />}
+                {mobileOpen ? <FiX size={22} aria-hidden="true" /> : <FiMenu size={22} aria-hidden="true" />}
               </button>
             </div>
           </div>

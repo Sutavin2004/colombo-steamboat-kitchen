@@ -21,6 +21,9 @@ export const info = {
   facebook: "https://www.facebook.com/ColomboSteamboatKitchen/",
   tiktok: "#",
 
+  // WhatsApp
+  whatsappNumber: "16472869344",
+
   hours: [
     { day: "Monday", hours: "Closed" },
     { day: "Tuesday", hours: "11:00 AM – 10:00 PM" },
@@ -43,4 +46,17 @@ export const info = {
       ctaTarget: "#menu",
     },
   ],
+
+  announcement: {
+    active: true,
+    emoji: "🎉",
+    text: "Celebrating Our 1st Anniversary! Meals starting from just $6 — come taste the Sri Lankan way!",
+    link: "#menu",
+    linkText: "See Our Menu →",
+  },
+
+  analytics: {
+    googleAnalyticsId: "G-XXXXXXXXXX",   // ← Replace with your GA4 ID from analytics.google.com
+    microsoftClarityId: "XXXXXXXXXX",    // ← Replace with your ID from clarity.microsoft.com
+  },
 }

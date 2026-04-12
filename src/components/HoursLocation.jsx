@@ -161,12 +161,30 @@ export default function HoursLocation() {
               href={info.googleMapsLink}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Get directions to Colombo Steam Boat Kitchen on Google Maps (opens in new tab)"
               className="flex items-center justify-center gap-2 w-full py-4 rounded-xl font-semibold font-body text-[#1A1209] text-sm hover:shadow-lg transition-all"
               style={{ background: 'linear-gradient(135deg, #E8871A 0%, #C9933A 100%)' }}
             >
-              <FiExternalLink size={16} />
+              <FiExternalLink size={16} aria-hidden="true" />
               Get Directions →
             </a>
+
+            {/* Neighbourhood Context Cards */}
+            <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {[
+                { icon: "🚇", title: "Transit", desc: "5 min from Kennedy Station · TTC Bus 34 stops at the door" },
+                { icon: "🅿️", title: "Parking", desc: "Free street parking on Eglinton Ave E · Plaza parking available" },
+                { icon: "📍", title: "Neighbourhood", desc: "Heart of Scarborough · Near Warden, Kennedy & Birchmount" },
+              ].map(card => (
+                <div key={card.title} className="bg-[#1A1209] border border-[#C9933A]/20 rounded-xl p-4 flex gap-3 items-start">
+                  <span className="text-2xl" role="img" aria-label={card.title}>{card.icon}</span>
+                  <div>
+                    <p className="text-[#E8871A] font-bold text-sm font-body">{card.title}</p>
+                    <p className="text-[#F5E6CC]/70 text-xs mt-0.5 font-body leading-relaxed">{card.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </motion.div>
         </div>
       </div>

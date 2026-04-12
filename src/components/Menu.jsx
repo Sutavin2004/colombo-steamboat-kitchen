@@ -65,8 +65,24 @@ export default function Menu() {
           ))}
         </div>
 
+        {/* View & Share Button */}
+        <div className="text-center mt-10">
+          <a
+            href="https://colombosteamboat.ca/wp-content/uploads/2025/06/CSBK_Menu_Update_01A.png"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="View and share the full menu (opens in new tab)"
+            className="inline-flex items-center gap-2 border border-[#C9933A]/40 hover:border-[#E8871A] text-[#E8871A] hover:bg-[#E8871A]/10 px-8 py-3.5 rounded-full font-body font-semibold transition-all duration-200 group"
+          >
+            <span aria-hidden="true">🖨️</span>
+            <span>View &amp; Share Full Menu</span>
+            <span className="group-hover:translate-x-1 transition-transform" aria-hidden="true">→</span>
+          </a>
+          <p className="text-[#F5E6CC]/30 text-xs mt-2 font-body">Opens full menu · Easy to share with friends &amp; family</p>
+        </div>
+
         {/* Footer note */}
-        <p className="text-center text-[#F5E6CC]/40 text-xs mt-10 font-body">
+        <p className="text-center text-[#F5E6CC]/40 text-xs mt-6 font-body">
           Menu items and prices may vary. Please inform us of any allergies when ordering.
         </p>
       </div>
@@ -87,18 +103,20 @@ export default function Menu() {
           >
             {/* Close */}
             <button
+              aria-label="Close menu viewer"
               className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors z-10"
               onClick={closeLightbox}
             >
-              <FiX size={20} />
+              <FiX size={20} aria-hidden="true" />
             </button>
 
             {/* Prev */}
             <button
+              aria-label="Previous menu page"
               className="absolute left-4 w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors z-10"
               onClick={(e) => { e.stopPropagation(); prev() }}
             >
-              <FiChevronLeft size={24} />
+              <FiChevronLeft size={24} aria-hidden="true" />
             </button>
 
             {/* Image */}
@@ -116,10 +134,11 @@ export default function Menu() {
 
             {/* Next */}
             <button
+              aria-label="Next menu page"
               className="absolute right-4 w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors z-10"
               onClick={(e) => { e.stopPropagation(); next() }}
             >
-              <FiChevronRight size={24} />
+              <FiChevronRight size={24} aria-hidden="true" />
             </button>
 
             {/* Page counter */}
