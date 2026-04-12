@@ -6,8 +6,8 @@ import { info } from '../data/info'
 const navLinks = [
   { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
-  { label: 'Menu', href: '#menu' },
-  { label: 'Reviews', href: '#reviews' },
+  { label: 'Promos', href: '#promos' },
+  { label: 'Our Menu', href: '#menu' },
   { label: 'Gallery', href: '#gallery' },
   { label: 'Location', href: '#location' },
   { label: 'Contact', href: '#contact' },
@@ -71,15 +71,13 @@ export default function Navbar() {
             {/* Logo */}
             <button
               onClick={() => handleNavClick('#home')}
-              className="flex items-center gap-3 group"
+              className="flex items-center group"
             >
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#E8871A] to-[#C9933A] flex items-center justify-center shadow-lg group-hover:shadow-[0_0_20px_rgba(232,135,26,0.5)] transition-shadow duration-300">
-                <span className="font-heading text-sm font-bold text-[#1A1209]">CSK</span>
-              </div>
-              <div className="hidden sm:block text-left">
-                <p className="font-heading text-[#FDF6EC] text-sm font-semibold leading-tight">Colombo Steam Boat</p>
-                <p className="font-accent text-[#C9933A] text-xs tracking-widest uppercase">Kitchen</p>
-              </div>
+              <img
+                src="https://colombosteamboat.ca/wp-content/uploads/2025/06/CSBK-Logo-PNG1.png"
+                alt="Colombo Steam Boat Kitchen Logo"
+                className="h-14 w-auto object-contain"
+              />
             </button>
 
             {/* Desktop Nav */}

@@ -1,6 +1,6 @@
 export const info = {
   restaurantName: "Colombo Steam Boat Kitchen",
-  tagline: "Where Every Meal Tells a Tamil Story",
+  tagline: "Authentic Sri Lankan Flavors in Toronto",
   address: "Unit 1, 2677 Eglinton Ave E, Scarborough, ON, M1K 2S3",
   phone: "+1 (647) 286-9344",
   email: "hello@colombosteamboat.ca",
@@ -18,7 +18,7 @@ export const info = {
 
   // Social Media
   instagram: "#",
-  facebook: "#",
+  facebook: "https://www.facebook.com/ColomboSteamboatKitchen/",
   tiktok: "#",
 
   hours: [
@@ -31,4 +31,16 @@ export const info = {
     { day: "Sunday", hours: "10:00 AM – 9:00 PM" },
   ],
   currentDayHighlight: true,
+
+  promos: [
+    {
+      id: 1,
+      active: true,
+      badge: "🎉 Anniversary Special",
+      headline: "Celebrating Our 1st Year!",
+      description: "Meals starting from just $6. Come celebrate with us — Sri Lankan style.",
+      cta: "View Our Menu",
+      ctaTarget: "#menu",
+    },
+  ],
 }

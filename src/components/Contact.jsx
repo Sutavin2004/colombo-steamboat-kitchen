@@ -78,15 +78,23 @@ export default function Contact() {
         >
           <div className="flex items-center justify-center gap-3 mb-4">
             <span className="h-px w-8 bg-[#E8871A]" />
-            <span className="font-accent text-[#E8871A] text-xs tracking-[0.3em] uppercase">Reserve a Table</span>
+            <span className="font-accent text-[#E8871A] text-xs tracking-[0.3em] uppercase">Get In Touch</span>
             <span className="h-px w-8 bg-[#E8871A]" />
           </div>
-          <h2 className="font-heading text-4xl sm:text-5xl font-bold text-[#FDF6EC]">
-            Join Us at <span className="gold-gradient">the Table</span>
+          <h2 className="font-heading text-3xl sm:text-4xl font-bold text-[#FDF6EC] leading-tight">
+            Let's celebrate with spice, flavor,<br />
+            <span className="gold-gradient">and great food — the Sri Lankan way!</span>
           </h2>
-          <p className="font-body text-[#F5E6CC]/55 text-base mt-4">
-            Reserve your spot for an unforgettable dining experience
+          <p className="font-body text-[#F5E6CC]/55 text-base mt-4 max-w-lg mx-auto">
+            Fill out the form below and we'll spice things up by getting back to you within 1–2 business days. We can't wait to cook up something special for you!
           </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6 text-sm font-body">
+            <a href={`tel:${info.phone}`} className="text-[#E8871A] hover:text-[#C9933A] transition-colors">
+              📞 {info.phone}
+            </a>
+            <span className="text-[#F5E6CC]/30 hidden sm:inline">|</span>
+            <span className="text-[#F5E6CC]/60">📍 {info.address}</span>
+          </div>
         </motion.div>
 
         <AnimatePresence mode="wait">

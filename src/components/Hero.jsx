@@ -4,7 +4,7 @@ import { FiChevronDown } from 'react-icons/fi'
 import SteamEffect from './SteamEffect'
 import { info } from '../data/info'
 
-const HERO_IMAGE = 'https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=1920&auto=format&fit=crop'
+const HERO_IMAGE = 'https://colombosteamboat.ca/wp-content/uploads/2025/06/CSBK_web_05.jpg'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -70,7 +70,7 @@ export default function Hero() {
           <span
             className="font-accent text-xs sm:text-sm text-[#E8871A] tracking-[0.3em] uppercase"
           >
-            ✦ Authentic Tamil Cuisine ✦
+            ✦ Authentic Sri Lankan Flavors in Toronto ✦
           </span>
           <span className="h-px w-8 bg-[#E8871A]/60" />
         </motion.div>
@@ -83,9 +83,8 @@ export default function Hero() {
           custom={0.25}
           className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-[#FDF6EC] font-bold leading-tight mb-4 max-w-5xl"
         >
-          Where Every Meal<br />
-          Tells a{' '}
-          <span className="gold-gradient">Tamil Story</span>
+          <span className="gold-gradient">Colombo Steam Boat</span><br />
+          Kitchen
         </motion.h1>
 
         {/* Subtext */}
@@ -96,8 +95,7 @@ export default function Hero() {
           custom={0.4}
           className="font-body text-base sm:text-lg text-[#F5E6CC]/80 max-w-xl mb-8 leading-relaxed"
         >
-          Experience the ancient art of steamboat dining, reimagined with the bold,
-          aromatic spices of Tamil Nadu
+          Let's celebrate with spice, flavor and great food – the Sri Lankan way!
         </motion.p>
 
         {/* Ornamental divider */}
@@ -144,6 +142,18 @@ export default function Hero() {
           >
             <span className="w-6 h-6 bg-black/10 rounded-full flex items-center justify-center text-xs font-bold">UE</span>
             Order on Uber Eats
+          </motion.a>
+          <motion.a
+            href={info.skipTheDishesURL}
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.06 }}
+            whileTap={{ scale: 0.97 }}
+            className="flex items-center justify-center gap-3 px-8 py-4 rounded-full font-semibold text-white text-base shadow-lg transition-shadow hover:shadow-[0_0_30px_rgba(226,0,26,0.5)]"
+            style={{ background: '#E2001A' }}
+          >
+            <span className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center text-[9px] font-bold">SKIP</span>
+            Order on Skip
           </motion.a>
         </motion.div>
       </div>

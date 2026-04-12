@@ -4,8 +4,8 @@ import { info } from '../data/info'
 const quickLinks = [
   { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
-  { label: 'Menu', href: '#menu' },
-  { label: 'Reviews', href: '#reviews' },
+  { label: 'Promos', href: '#promos' },
+  { label: 'Our Menu', href: '#menu' },
   { label: 'Gallery', href: '#gallery' },
   { label: 'Contact', href: '#contact' },
 ]
@@ -32,12 +32,12 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
         {/* Logo */}
         <div className="text-center mb-14">
-          <div className="inline-flex flex-col items-center gap-2">
-            <div className="w-14 h-14 rounded-full flex items-center justify-center shadow-lg"
-              style={{ background: 'linear-gradient(135deg, #E8871A 0%, #C9933A 100%)', boxShadow: '0 0 30px rgba(232,135,26,0.3)' }}>
-              <span className="font-heading text-base font-bold text-[#1A1209]">CSK</span>
-            </div>
-            <p className="font-heading text-2xl font-bold text-[#FDF6EC]">{info.restaurantName}</p>
+          <div className="inline-flex flex-col items-center gap-3">
+            <img
+              src="https://colombosteamboat.ca/wp-content/uploads/2025/06/CSBK-Logo-PNG1.png"
+              alt="Colombo Steam Boat Kitchen Logo"
+              className="h-14 w-auto object-contain"
+            />
             <p className="font-subheading italic text-[#C9933A] text-sm">{info.tagline}</p>
           </div>
         </div>

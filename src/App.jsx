@@ -1,6 +1,7 @@
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
+import Promos from './components/Promos'
 import Menu from './components/Menu'
 import OrderOnline from './components/OrderOnline'
 import Reviews from './components/Reviews'
@@ -19,6 +20,9 @@ export default function App() {
       </section>
       <section id="about">
         <About />
+      </section>
+      <section id="promos">
+        <Promos />
       </section>
       <SectionDivider darkTo={false} />
       <section id="menu">
