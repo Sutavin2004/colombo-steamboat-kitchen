@@ -2,7 +2,22 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { info } from '../data/info'
 
-const partySizes = ['1–2 guests', '3–4 guests', '5–6 guests', '7+ guests']
+const guestOptions = [
+  '10–25 guests',
+  '26–50 guests',
+  '51–100 guests',
+  '101–200 guests',
+  '200+ guests',
+]
+
+const eventTypes = [
+  'Wedding / Engagement',
+  'Birthday Party',
+  'Corporate Event',
+  'Religious / Cultural Celebration',
+  'Graduation',
+  'Other',
+]
 
 function InputField({ label, type = 'text', name, value, onChange, required, placeholder }) {
   return (
@@ -23,14 +38,40 @@ function InputField({ label, type = 'text', name, value, onChange, required, pla
   )
 }
 
+function SelectField({ label, name, value, onChange, options, placeholder, required }) {
+  return (
+    <div>
+      <label className="block font-body text-xs text-[#F5E6CC]/50 uppercase tracking-widest mb-2">
+        {label} {required && <span className="text-[#E8871A]">*</span>}
+      </label>
+      <select
+        name={name}
+        value={value}
+        onChange={onChange}
+        required={required}
+        className="w-full bg-transparent border-b border-[#C9933A]/25 pb-2 font-body text-[#FDF6EC] text-sm focus:outline-none focus:border-[#E8871A] transition-colors duration-300"
+        style={{ background: 'transparent' }}
+      >
+        <option value="" style={{ background: '#1A1209' }}>{placeholder}</option>
+        {options.map(o => (
+          <option key={o} value={o} style={{ background: '#1A1209' }}>{o}</option>
+        ))}
+      </select>
+    </div>
+  )
+}
+
 export default function Contact() {
   const [form, setForm] = useState({
     name: '',
     email: '',
     phone: '',
-    partySize: '',
+    eventType: '',
+    guestCount: '',
     date: '',
-    message: '',
+    venue: '',
+    budget: '',
+    details: '',
   })
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
@@ -46,13 +87,10 @@ export default function Contact() {
       const res = await fetch(info.formspreeURL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, _subject: 'New Catering Inquiry — Colombo Steam Boat Kitchen' }),
       })
-      if (res.ok) {
-        setSubmitted(true)
-      }
+      if (res.ok) setSubmitted(true)
     } catch {
-      // Silently show success for demo; in production, handle error
       setSubmitted(true)
     }
     setLoading(false)
@@ -64,7 +102,7 @@ export default function Contact() {
       style={{ background: '#1A1209' }}
     >
       {/* Background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-5 blur-3xl pointer-events-none"
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full opacity-5 blur-3xl pointer-events-none"
         style={{ background: 'radial-gradient(circle, #E8871A 0%, transparent 70%)' }} />
 
       <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -78,22 +116,24 @@ export default function Contact() {
         >
           <div className="flex items-center justify-center gap-3 mb-4">
             <span className="h-px w-8 bg-[#E8871A]" />
-            <span className="font-accent text-[#E8871A] text-xs tracking-[0.3em] uppercase">Get In Touch</span>
+            <span className="font-accent text-[#E8871A] text-xs tracking-[0.3em] uppercase">Catering</span>
             <span className="h-px w-8 bg-[#E8871A]" />
           </div>
           <h2 className="font-heading text-3xl sm:text-4xl font-bold text-[#FDF6EC] leading-tight">
-            Let's celebrate with spice, flavor,<br />
-            <span className="gold-gradient">and great food — the Sri Lankan way!</span>
+            Let us cook for your<br />
+            <span className="gold-gradient">next big celebration!</span>
           </h2>
           <p className="font-body text-[#F5E6CC]/55 text-base mt-4 max-w-lg mx-auto">
-            Fill out the form below and we'll spice things up by getting back to you within 1–2 business days. We can't wait to cook up something special for you!
+            From intimate family gatherings to large weddings, we bring authentic Sri Lankan flavors to your event. Fill out the form and we'll get back to you within 1–2 business days.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6 text-sm font-body">
             <a href={`tel:${info.phone}`} className="text-[#E8871A] hover:text-[#C9933A] transition-colors">
               📞 {info.phone}
             </a>
             <span className="text-[#F5E6CC]/30 hidden sm:inline">|</span>
-            <span className="text-[#F5E6CC]/60">📍 {info.address}</span>
+            <a href={`mailto:${info.email}`} className="text-[#F5E6CC]/60 hover:text-[#E8871A] transition-colors">
+              ✉️ {info.email}
+            </a>
           </div>
         </motion.div>
 
@@ -116,16 +156,18 @@ export default function Contact() {
               >
                 <span className="text-3xl text-white">✓</span>
               </motion.div>
-              <h3 className="font-heading text-3xl font-bold text-[#FDF6EC] mb-3">We've Got Your Table!</h3>
+              <h3 className="font-heading text-3xl font-bold text-[#FDF6EC] mb-3">Inquiry Received!</h3>
               <p className="font-body text-[#F5E6CC]/65 text-base max-w-sm mx-auto">
-                Thank you! We'll confirm your reservation by phone or email within 24 hours.
-                We can't wait to welcome you.
+                Thank you! Our catering team will review your request and reach out within 1–2 business days to discuss the details.
               </p>
               <button
-                onClick={() => { setSubmitted(false); setForm({ name:'', email:'', phone:'', partySize:'', date:'', message:'' }) }}
+                onClick={() => {
+                  setSubmitted(false)
+                  setForm({ name: '', email: '', phone: '', eventType: '', guestCount: '', date: '', venue: '', budget: '', details: '' })
+                }}
                 className="mt-8 font-body text-[#E8871A] text-sm underline hover:text-[#C9933A] transition-colors"
               >
-                Make another reservation
+                Submit another inquiry
               </button>
             </motion.div>
           ) : (
@@ -136,50 +178,58 @@ export default function Contact() {
               onSubmit={handleSubmit}
               className="space-y-8"
             >
-              {/* Row 1 */}
+              {/* Row 1: Name + Email */}
               <div className="grid sm:grid-cols-2 gap-8">
                 <InputField label="Your Name" name="name" value={form.name} onChange={handleChange} required placeholder="e.g. Priya Krishnan" />
                 <InputField label="Email Address" type="email" name="email" value={form.email} onChange={handleChange} required placeholder="hello@example.com" />
               </div>
 
-              {/* Row 2 */}
+              {/* Row 2: Phone + Number of Guests */}
               <div className="grid sm:grid-cols-2 gap-8">
-                <InputField label="Phone Number" type="tel" name="phone" value={form.phone} onChange={handleChange} placeholder="(647) 555-0000" />
-
-                {/* Party Size Select */}
-                <div>
-                  <label className="block font-body text-xs text-[#F5E6CC]/50 uppercase tracking-widest mb-2">
-                    Party Size
-                  </label>
-                  <select
-                    name="partySize"
-                    value={form.partySize}
-                    onChange={handleChange}
-                    className="w-full bg-transparent border-b border-[#C9933A]/25 pb-2 font-body text-[#FDF6EC] text-sm focus:outline-none focus:border-[#E8871A] transition-colors duration-300"
-                    style={{ background: 'transparent' }}
-                  >
-                    <option value="" style={{ background: '#1A1209' }}>Select party size</option>
-                    {partySizes.map(s => (
-                      <option key={s} value={s} style={{ background: '#1A1209' }}>{s}</option>
-                    ))}
-                  </select>
-                </div>
+                <InputField label="Phone Number" type="tel" name="phone" value={form.phone} onChange={handleChange} required placeholder="(647) 555-0000" />
+                <SelectField
+                  label="Number of Guests"
+                  name="guestCount"
+                  value={form.guestCount}
+                  onChange={handleChange}
+                  options={guestOptions}
+                  placeholder="Select guest count"
+                  required
+                />
               </div>
 
-              {/* Date */}
-              <InputField label="Preferred Date" type="date" name="date" value={form.date} onChange={handleChange} />
+              {/* Row 3: Event Type + Date */}
+              <div className="grid sm:grid-cols-2 gap-8">
+                <SelectField
+                  label="Type of Event"
+                  name="eventType"
+                  value={form.eventType}
+                  onChange={handleChange}
+                  options={eventTypes}
+                  placeholder="Select event type"
+                  required
+                />
+                <InputField label="Event Date" type="date" name="date" value={form.date} onChange={handleChange} required />
+              </div>
 
-              {/* Message */}
+              {/* Row 4: Venue + Budget */}
+              <div className="grid sm:grid-cols-2 gap-8">
+                <InputField label="Venue / Location" name="venue" value={form.venue} onChange={handleChange} placeholder="e.g. Scarborough Convention Centre" />
+                <InputField label="Estimated Budget" name="budget" value={form.budget} onChange={handleChange} placeholder="e.g. $2,000–$5,000" />
+              </div>
+
+              {/* Details */}
               <div>
                 <label className="block font-body text-xs text-[#F5E6CC]/50 uppercase tracking-widest mb-2">
-                  Special Requests
+                  What do you need? <span className="text-[#E8871A]">*</span>
                 </label>
                 <textarea
-                  name="message"
-                  value={form.message}
+                  name="details"
+                  value={form.details}
                   onChange={handleChange}
-                  rows={4}
-                  placeholder="Dietary restrictions, anniversary celebration, high chair needed..."
+                  required
+                  rows={5}
+                  placeholder="Tell us about your event — menu preferences, dietary restrictions, service style (buffet, plated, etc.), and anything else we should know..."
                   className="w-full bg-transparent border-b border-[#C9933A]/25 pb-2 font-body text-[#FDF6EC] text-sm placeholder-[#F5E6CC]/25 focus:outline-none focus:border-[#E8871A] transition-colors duration-300 resize-none"
                 />
               </div>
@@ -199,12 +249,11 @@ export default function Contact() {
                   boxShadow: '0 8px 30px rgba(232,135,26,0.35)',
                 }}
               >
-                {loading ? 'Sending…' : 'Reserve a Table →'}
+                {loading ? 'Sending…' : 'Submit Catering Inquiry →'}
               </motion.button>
 
               <p className="text-center font-body text-xs text-[#F5E6CC]/30">
-                {/* Note: Replace formspreeURL in src/data/info.js with your Formspree form ID */}
-                We'll confirm within 24 hours. Walk-ins are always welcome.
+                We'll respond within 1–2 business days. You can also call us directly at {info.phone}.
               </p>
             </motion.form>
           )}

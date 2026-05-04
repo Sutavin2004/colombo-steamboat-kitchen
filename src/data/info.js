@@ -25,13 +25,13 @@ export const info = {
   whatsappNumber: "16472869344",
 
   hours: [
-    { day: "Monday", hours: "Closed" },
-    { day: "Tuesday", hours: "11:00 AM – 10:00 PM" },
-    { day: "Wednesday", hours: "11:00 AM – 10:00 PM" },
-    { day: "Thursday", hours: "11:00 AM – 10:00 PM" },
-    { day: "Friday", hours: "11:00 AM – 11:00 PM" },
-    { day: "Saturday", hours: "10:00 AM – 11:00 PM" },
-    { day: "Sunday", hours: "10:00 AM – 9:00 PM" },
+    { day: "Monday", hours: "10:00 AM – 10:00 PM" },
+    { day: "Tuesday", hours: "10:00 AM – 10:00 PM" },
+    { day: "Wednesday", hours: "10:00 AM – 10:00 PM" },
+    { day: "Thursday", hours: "10:00 AM – 10:00 PM" },
+    { day: "Friday", hours: "10:00 AM – 10:00 PM" },
+    { day: "Saturday", hours: "10:00 AM – 10:00 PM" },
+    { day: "Sunday", hours: "10:00 AM – 10:00 PM" },
   ],
   currentDayHighlight: true,
 

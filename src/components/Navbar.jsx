@@ -11,7 +11,7 @@ const navLinks = [
   { label: 'Our Menu', href: '#menu' },
   { label: 'Gallery', href: '#gallery' },
   { label: 'Location', href: '#location' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Catering', href: '#contact' },
 ]
 
 export default function Navbar() {

@@ -7,15 +7,11 @@ const quickLinks = [
   { label: 'Promos', href: '#promos' },
   { label: 'Our Menu', href: '#menu' },
   { label: 'Gallery', href: '#gallery' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Catering', href: '#contact' },
 ]
 
 const hoursSummary = [
-  { day: 'Mon', hours: 'Closed' },
-  { day: 'Tue–Thu', hours: '11am–10pm' },
-  { day: 'Fri', hours: '11am–11pm' },
-  { day: 'Sat', hours: '10am–11pm' },
-  { day: 'Sun', hours: '10am–9pm' },
+  { day: 'Mon–Sun', hours: '10am–10pm' },
 ]
 
 function handleNavClick(href) {
